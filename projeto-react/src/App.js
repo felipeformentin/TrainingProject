@@ -53,7 +53,7 @@ class App extends Component {
   
 
   render() {
-
+    console.log(this.state);
     var cols = [];
     for (var i = 0; i < 4; i++) {
         // note: we add a key prop here to allow react to uniquely identify each
