@@ -3,7 +3,6 @@ import { Container, Row, Col, Jumbotron } from 'reactstrap';
 import './App.css';
 import NavbarX from './components/navbar';
 import FoodCard from './components/foodCard';
-import $ from 'jquery';
 
 class App extends Component {
 
@@ -11,22 +10,47 @@ class App extends Component {
     super(props);
     this.state = {
       value: Array(9).fill("null"),
+      response: ''
     };
   }
 
+  // componentWillMount() {
+  //   // $.ajax({
+  //   //   type: "GET",
+  //   //   url: "http://localhost:8080/",
+  //   //   success: function(result){
+  //   //     this.setState({value: result});
+  //   //     console.log(this.state.value[0].name);
+  //   //   }.bind(this),
+  //   //   error: function(xhr, textStatus, errorThrown){
+  //   //     console.log("aw");
+  //   //   }
+  //   // });
+  //   $.ajax({
+  //     type: 'GET',
+  //     url: 'http://localhost:4000/',
+  //     success: function(result){
+  //       console.log("sucesso: " . result);
+  //     },
+  //     error: function(result){
+  //       console.log("erro: " . result);
+  //     }
+  //   });
+  // }
+
   componentDidMount() {
-    $.ajax({
-      type: "GET",
-      url: "http://localhost:8080/",
-      success: function(result){
-        this.setState({value: result});
-        console.log(this.state.value[0].name);
-      }.bind(this),
-      error: function(xhr, textStatus, errorThrown){
-        console.log("aw");
-      }
-    });
-  }
+    this.callApi()
+      .then(res => this.setState({ response: res.express }))
+      .catch(err => console.log(err));
+    }
+  
+    callApi = async () => {
+      const response = await fetch('/api/mensagem');
+      const body = await response.json();
+      if (response.status !== 200) throw Error(body.message);
+      return body;
+    };
+  
 
   render() {
 
