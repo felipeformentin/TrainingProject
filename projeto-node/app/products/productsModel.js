@@ -12,3 +12,13 @@ var productSchema = new Schema({
 var Products = mongoose.model('Products', productSchema);
 
 module.exports = Products;
+
+
+
+
+// var product = new Products({
+//     name: 'Queijo',
+//     description: 'Delicioso queijo',
+//     price: '24.45',
+//     quantity: '100'
+//   });
