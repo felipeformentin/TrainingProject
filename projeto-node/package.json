@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "nodemon ./bin/www",
     "client": "cd ../projeto-react && npm start",
     "dev": "concurrently --kill-others-on-fail \"npm run start\" \"npm run client\""
   },
