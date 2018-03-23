@@ -6,7 +6,7 @@ import FoodCard from './components/foodCard';
 
 export default class HomeBox extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       value: Array(9).fill("null"),
@@ -42,39 +42,39 @@ export default class HomeBox extends Component {
     this.callApi()
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
-    }
-  
-    callApi = async () => {
-      const response = await fetch('/api/mensagem');
-      const body = await response.json();
-      if (response.status !== 200) throw Error(body.message);
-      return body;
-    };
-  
+  }
+
+  callApi = async () => {
+    const response = await fetch('/api/mensagem');
+    const body = await response.json();
+    if (response.status !== 200) throw Error(body.message);
+    return body;
+  };
+
 
   render() {
     console.log(this.state);
     var cols = [];
     for (var i = 0; i < 4; i++) {
-        // note: we add a key prop here to allow react to uniquely identify each
-        // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
-        cols.push(<Col key={i}><FoodCard name={this.state.value[i].name}
-                                         description={this.state.value[i].description}
-                                         key={i.id}/></Col>);
+      // note: we add a key prop here to allow react to uniquely identify each
+      // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
+      cols.push(<Col key={i}><FoodCard name={this.state.value[i].name}
+        description={this.state.value[i].description}
+        key={i.id} /></Col>);
     }
 
     return (
       <div>
+        <Jumbotron>
+          <h1> Confira nossas maravilhosas opções ! </h1>
           <Jumbotron>
-            <h1> Confira nossas maravilhosas opções ! </h1>
-            <Jumbotron>
-              <Container>
-                <Row>
-                  {cols}
-                </Row>
-              </Container>
-            </Jumbotron>
+            <Container>
+              <Row>
+                {cols}
+              </Row>
+            </Container>
           </Jumbotron>
+        </Jumbotron>
       </div>
     );
   }
