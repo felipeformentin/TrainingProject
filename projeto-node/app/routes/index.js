@@ -16,18 +16,14 @@ router.get('/api/products', (req, res) => {
 
   var results = Products.find({}, function (err, docs) {
     if (!err) {
-      process.exit();
+      console.log(docs);
+      res.send({ express: docs });
     } else { throw err; }
   });
+console.log(products);
+var products = results;
 
-var products = {
-  id: '3',
-  name: '3',
-  description: '3',
-  quantity: '3',
-  value: '3'
-}
-  res.send({ express: products });
+  
 });
 
 module.exports = router;
