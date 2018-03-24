@@ -13,7 +13,7 @@ export default class FoodList extends React.Component {
 
     componentWillMount() {
         this.callApi()
-            .then(res => this.setState({ products: res.express, two: res.two }))
+            .then(res => this.setState({ products: res.products, count: res.count }))
             .catch(err => console.log(err));
     }
 
@@ -27,7 +27,7 @@ export default class FoodList extends React.Component {
 
     render() {
         console.log("alright");
-        console.log(this.state.two);
+        console.log(this.state.count);
         var products = [];
         for (var i = 0; i < 5; i++) {
             // note: we add a key prop here to allow react to uniquely identify each

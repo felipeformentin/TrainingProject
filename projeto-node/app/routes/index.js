@@ -14,13 +14,26 @@ router.get('/api/mensagem', (req, res) => {
 
 router.get('/api/products', (req, res) => {
 
-  //This will return 5 products, and call render while at it;
-  var results = Products.find({}).limit(5).exec(function(err, docs){
-    if (!err) {
-      res.send({ express: docs, two: 2 });
-    } else { throw err; }
-  });
-console.log("this " . results);
+  //This will return 5 products + the count, and call render while at it;
+  function getProducts(count) {
+    Products.find({}).limit(5).exec(function (err, docs) {
+      if (!err) {
+        res.send({ products: docs, count: count });
+      } else { throw err; }
+    });
+  }
+
+  function countProducts() {
+    Products.count({}, function (err, count) {
+      getProducts(count);
+    });
+  }
+
+  countProducts();
+  // getProducts(function(docs){
+  //   res.send({ express: docs, two: 2 });
+  // })
+  //res.send({ express: docs, two: 2 });
 });
 
 module.exports = router;
