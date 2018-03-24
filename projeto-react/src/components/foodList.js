@@ -1,5 +1,6 @@
 import React from 'react';
 import { ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText } from 'reactstrap';
+import FoodListPagination from './foodListPagination';
 
 export default class FoodList extends React.Component {
 
@@ -12,7 +13,7 @@ export default class FoodList extends React.Component {
 
     componentWillMount() {
         this.callApi()
-            .then(res => this.setState({ products: res.express }))
+            .then(res => this.setState({ products: res.express, two: res.two }))
             .catch(err => console.log(err));
     }
 
@@ -26,9 +27,9 @@ export default class FoodList extends React.Component {
 
     render() {
         console.log("alright");
-        console.log(this.state.products);
+        console.log(this.state.two);
         var products = [];
-        for (var i = 0; i < 1; i++) {
+        for (var i = 0; i < 5; i++) {
             // note: we add a key prop here to allow react to uniquely identify each
             // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
             products.push(
@@ -43,9 +44,12 @@ export default class FoodList extends React.Component {
         }
         
         return (
-            <ListGroup>
-                {products}
-            </ListGroup>
+            <div className="container">
+                <ListGroup>
+                    {products}
+                </ListGroup>
+                <FoodListPagination/>
+            </div>
         );
     }
 }

@@ -44,7 +44,7 @@ export default class NavbarX extends React.Component {
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  Perfil
+                  Profile
                 </DropdownToggle>
                 <DropdownMenu >
                   <DropdownItem>
