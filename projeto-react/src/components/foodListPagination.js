@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 export default class FoodListPagination extends React.Component {
   render() {
 
-
-
     var pages = [];
     var result = Math.ceil(this.props.count / 5);;
     for (var i = 1; i <= result; i++) {
@@ -19,7 +17,6 @@ export default class FoodListPagination extends React.Component {
           </PaginationLink>
         </PaginationItem>);
     }
-
 
     return (
       <Pagination size="lg">
