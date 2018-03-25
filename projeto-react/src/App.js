@@ -14,7 +14,7 @@ class App extends Component {
           <div>
             <NavbarX />
             <Route exact path="/" component={HomeBox} />
-            <Route path="/products" component={FoodList} />
+            <Route path="/products/:page" component={FoodList} />
           </div>
         </Router>
       </div>

@@ -7,7 +7,7 @@ export default class FoodList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            products: Array(5).fill("null"),
+            products: Array(20).fill("null"),
         };
     }
 
@@ -19,15 +19,26 @@ export default class FoodList extends React.Component {
 
 
     callApi = async () => {
-        const response = await fetch('/api/products');
+        const response = await fetch('/api/products/');
         const body = await response.json();
         if (response.status !== 200) throw Error(body.message);
         return body;
     };
 
     render() {
+        console.log(this.props.match.params);
+        var page = this.props.match.params.page;
+        var start = 0
+        var limit = 4;
+        if (page > 1) {
+            start = (page -1) * 5;
+            limit = start + 4
+        }
+        if (limit > this.state.products.length) {
+            limit = this.state.products.length - 1
+        }
         var products = [];
-        for (var i = 0; i < 5; i++) {
+        for (var i = start; i <= limit; i++) {
             // note: we add a key prop here to allow react to uniquely identify each
             // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
             products.push(

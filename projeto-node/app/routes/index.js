@@ -12,11 +12,11 @@ router.get('/api/mensagem', (req, res) => {
   res.send({ express: 'Hello From Express' });
 });
 
-router.get('/api/products', (req, res) => {
+router.get('/api/products/', (req, res) => {
 
   //This will return 5 products + the count, and call render while at it;
   function getProducts(count) {
-    Products.find({}).limit(5).exec(function (err, docs) {
+    Products.find({}).exec(function (err, docs) {
       if (!err) {
         res.send({ products: docs, count: count });
       } else { throw err; }
