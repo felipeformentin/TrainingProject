@@ -30,10 +30,7 @@ router.get('/api/products', (req, res) => {
   }
 
   countProducts();
-  // getProducts(function(docs){
-  //   res.send({ express: docs, two: 2 });
-  // })
-  //res.send({ express: docs, two: 2 });
+  
 });
 
 module.exports = router;

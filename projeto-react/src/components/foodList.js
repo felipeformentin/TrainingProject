@@ -26,8 +26,6 @@ export default class FoodList extends React.Component {
     };
 
     render() {
-        console.log("alright");
-        console.log(this.state.count);
         var products = [];
         for (var i = 0; i < 5; i++) {
             // note: we add a key prop here to allow react to uniquely identify each
@@ -48,7 +46,7 @@ export default class FoodList extends React.Component {
                 <ListGroup>
                     {products}
                 </ListGroup>
-                <FoodListPagination/>
+                <FoodListPagination count={this.state.count}/>
             </div>
         );
     }
