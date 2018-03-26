@@ -1034,12 +1034,12 @@ using `fetch()` to access it.
 
 ### Node
 Check out [this tutorial](https://www.fullstackreact.com/articles/using-create-react-app-with-a-server/).
-You can find the companion GitHub repository [here](https://github.com/fullstackreact/food-lookup-demo).
+You can find the companion GitHub repository [here](https://github.com/fullstackreact/product-lookup-demo).
 
 ### Ruby on Rails
 
 Check out [this tutorial](https://www.fullstackreact.com/articles/how-to-get-create-react-app-to-work-with-your-rails-api/).
-You can find the companion GitHub repository [here](https://github.com/fullstackreact/food-lookup-demo-rails).
+You can find the companion GitHub repository [here](https://github.com/fullstackreact/product-lookup-demo-rails).
 
 ## Proxying API Requests in Development
 

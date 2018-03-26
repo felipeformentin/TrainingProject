@@ -1,8 +1,8 @@
 import React from 'react';
 import { ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText } from 'reactstrap';
-import FoodListPagination from './foodListPagination';
+import ProductListPagination from './productListPagination';
 
-export default class FoodList extends React.Component {
+export default class ProductList extends React.Component {
 
     constructor(props) {
         super(props);
@@ -38,8 +38,6 @@ export default class FoodList extends React.Component {
         }
         var products = [];
         for (var i = start; i <= limit; i++) {
-            // note: we add a key prop here to allow react to uniquely identify each
-            // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
             products.push(
                 <ListGroupItem key={i}>
                     <ListGroupItemHeading key={i.id}>
@@ -56,7 +54,7 @@ export default class FoodList extends React.Component {
                 <ListGroup>
                     {products}
                 </ListGroup>
-                <FoodListPagination count={this.state.count} />
+                <ProductListPagination count={this.state.count} />
             </div>
         );
     }

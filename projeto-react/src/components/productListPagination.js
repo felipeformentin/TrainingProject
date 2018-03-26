@@ -2,7 +2,7 @@ import React from 'react';
 import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import { Link } from "react-router-dom";
 
-export default class FoodListPagination extends React.Component {
+export default class ProductListPagination extends React.Component {
   render() {
 
     var pages = [];

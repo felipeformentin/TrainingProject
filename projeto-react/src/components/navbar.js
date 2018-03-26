@@ -32,7 +32,7 @@ export default class NavbarX extends React.Component {
     return (
       <div>
         <Navbar color="dark" dark expand="md">
-          <NavbarBrand tag={Link} to="/">Frozen Food Delivery</NavbarBrand>
+          <NavbarBrand tag={Link} to="/">Frozen Product Delivery</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
