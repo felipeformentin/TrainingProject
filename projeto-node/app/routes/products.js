@@ -1,29 +1,11 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 const mongoose = require('mongoose');
-var Products = require('../products/productsModel');
+let productsModel = require('../products/productsModel');
+const productList = require('../products/products');
 
 /* GET products listing. */
 
-router.get('/', (req, res) => {
-
-  //This will return 5 products + the count, and call render while at it;
-  getProducts = (count) => {
-    Products.find({}).exec(function (err, docs) {
-      if (!err) {
-        res.send({ products: docs, count: count });
-      } else { throw err; }
-    });
-  }
-
-  countProducts = () => {
-    Products.count({}, function (err, count) {
-      getProducts(count);
-    });
-  }
-
-  countProducts();
-
-});
+router.get('/', productList.productList);
 
 module.exports = router;

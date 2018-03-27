@@ -9,9 +9,9 @@ var productSchema = new Schema({
     quantity: String
 });
 
-var Products = mongoose.model('Products', productSchema);
+var ProductsModel = mongoose.model('Products', productSchema);
 
-module.exports = Products;
+module.exports = ProductsModel;
 
 
 
