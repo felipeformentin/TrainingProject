@@ -10,6 +10,7 @@ export default class HomeBox extends Component {
     this.setState({ products: this.getFeaturedProducts() });
   }
 
+  //Later this will feature an api call, then will be a for each.
   getFeaturedProducts = () => {
     let cols = [];
     for (let i = 0; i < 4; i++) {
@@ -40,4 +41,5 @@ export default class HomeBox extends Component {
       </div>
     );
   }
+
 }

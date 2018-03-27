@@ -3,8 +3,15 @@ import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import { Link } from "react-router-dom";
 
 export default class ProductListPagination extends React.Component {
-  render() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pages: []
+    };
+    this.getPages = this.getPages.bind(this);
+  }
 
+  getPages = () => {
     var pages = [];
     var result = Math.ceil(this.props.count / 5);;
     for (var i = 1; i <= result; i++) {
@@ -17,7 +24,11 @@ export default class ProductListPagination extends React.Component {
           </PaginationLink>
         </PaginationItem>);
     }
+    return pages;
+  }
 
+  render() {
+    const pages = this.getPages();
     return (
       <Pagination size="lg">
         <PaginationItem>
