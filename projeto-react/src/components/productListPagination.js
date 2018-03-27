@@ -15,8 +15,6 @@ export default class ProductListPagination extends React.Component {
     var pages = [];
     var result = Math.ceil(this.props.count / 5);;
     for (var i = 1; i <= result; i++) {
-      // note: we add a key prop here to allow react to uniquely identify each
-      // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
       pages.push(
         <PaginationItem key={i}>
           <PaginationLink tag={Link} to={"/products/" + i}>
