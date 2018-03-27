@@ -24,7 +24,7 @@ export default class ProductList extends React.Component {
 
     callApi = async () => {
         try {
-            const response = await fetch('/api/products/');
+            const response = await fetch('/products/');
             return await response.json();
         } catch (error) {
             console.log('Error: ', error);
