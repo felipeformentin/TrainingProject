@@ -9,9 +9,9 @@ export default class ProductListPagination extends React.Component {
   }
 
   getPages = () => {
-    var pages = [];
-    var result = Math.ceil(this.props.count / 5);;
-    for (var i = 1; i <= result; i++) {
+    let pages = [];
+    let result = Math.ceil(this.props.count / 5);;
+    for (let i = 1; i <= result; i++) {
       pages.push(
         <PaginationItem key={i}>
           <PaginationLink tag={Link} to={"/products/" + i}>
@@ -23,7 +23,6 @@ export default class ProductListPagination extends React.Component {
   }
 
   render() {
-    console.log(this);
     const pages = this.getPages();
     return (
       <Pagination size="lg">

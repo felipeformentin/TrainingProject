@@ -14,7 +14,6 @@ export default class HomeBox extends Component {
   getFeaturedProducts = () => {
     let cols = [];
     for (let i = 0; i < 4; i++) {
-      console.log(i);
       cols.push(
         <Col key={i}>
           <ProductCard name="default"

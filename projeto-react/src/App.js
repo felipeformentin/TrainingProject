@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 import NavbarX from './components/navbar';
-import ProductList from './components/productList';
+import ProductListBox from './ProductListBox';
 import HomeBox from './HomeBox';
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
           <div>
             <NavbarX />
             <Route exact path="/" component={HomeBox} />
-            <Route path="/products/:page?" component={ProductList} />
+            <Route path="/products/:page?" component={ProductListBox} />
           </div>
         </Router>
       </div>
