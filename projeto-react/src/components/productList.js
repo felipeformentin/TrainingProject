@@ -1,6 +1,7 @@
 import React from 'react';
 import { ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText } from 'reactstrap';
 import ProductListPagination from './productListPagination';
+import '../App.css';
 
 export default class ProductList extends React.Component {
 
@@ -83,11 +84,15 @@ export default class ProductList extends React.Component {
         let { start, limit } = this.getPaginationConfig(this.props.match.params.page);
         const products = this.mountPagination(start, limit);
         return (
-            <div className="container">
-                <ListGroup>
-                    {products}
-                </ListGroup>
-                <ProductListPagination count={this.state.count} />
+            <div className="padd-top">
+                <div className="container">
+                    <ListGroup>
+                        {products}
+                    </ListGroup>
+                    <div className="pagination">
+                        <ProductListPagination count={this.state.count} />
+                    </div>
+                </div>
             </div>
         );
     }

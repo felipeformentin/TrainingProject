@@ -5,9 +5,6 @@ import { Link } from "react-router-dom";
 export default class ProductListPagination extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      pages: []
-    };
     this.getPages = this.getPages.bind(this);
   }
 
@@ -26,6 +23,7 @@ export default class ProductListPagination extends React.Component {
   }
 
   render() {
+    console.log(this);
     const pages = this.getPages();
     return (
       <Pagination size="lg">
