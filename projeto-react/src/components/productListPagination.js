@@ -22,16 +22,30 @@ export default class ProductListPagination extends React.Component {
     return pages;
   }
 
+  goBack = () => {
+    let actualPage = parseInt(this.props.page);
+    if(actualPage === undefined) actualPage = 1;
+    if(actualPage > 1) actualPage -= 1;
+    return "/products/" + actualPage;
+  }
+
+  goForward = () => {
+    let actualPage = parseInt(this.props.page);
+    if(actualPage == undefined) actualPage = 1;
+    actualPage += 1;
+    return "/products/" + actualPage;
+  }
+
   render() {
     const pages = this.getPages();
     return (
       <Pagination size="lg">
         <PaginationItem>
-          <PaginationLink previous href="#" />
+          <PaginationLink previous tag={Link} to={this.goBack()} />
         </PaginationItem>
         {pages}
         <PaginationItem>
-          <PaginationLink next href="#" />
+          <PaginationLink next tag={Link} to={this.goForward()} />
         </PaginationItem>
       </Pagination>
     );

@@ -81,7 +81,7 @@ export default class ProductListBox extends Component {
             <div>
                 {products}
                 <div className="pagination">
-                    <ProductListPagination count={this.state.count} />
+                    <ProductListPagination page={this.props.match.params.page} count={this.state.count} />
                 </div>
             </div>
         );
