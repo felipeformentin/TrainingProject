@@ -5,13 +5,22 @@ import { Link } from "react-router-dom";
 export default class ProductListPagination extends React.Component {
   constructor(props) {
     super(props);
-    this.getPages = this.getPages.bind(this);
+    this.getNumberOfPages = this.getNumberOfPages.bind(this);
   }
 
-  getPages = () => {
+  getActualPage = (defaultPageValue) => {
+    let actualPage;
+    if (this.props.page !== undefined)
+      actualPage = parseInt(this.props.page, 10);
+    else
+      actualPage = defaultPageValue;
+    return actualPage;
+  }
+
+  getNumberOfPages = () => {
     let pages = [];
-    let result = Math.ceil(this.props.count / 5);;
-    for (let i = 1; i <= result; i++) {
+    let pageLimit = Math.ceil(this.props.count / 5);
+    for (let i = 1; i <= pageLimit; i++) {
       pages.push(
         <PaginationItem key={i}>
           <PaginationLink tag={Link} to={"/products/" + i}>
@@ -23,21 +32,20 @@ export default class ProductListPagination extends React.Component {
   }
 
   goBack = () => {
-    let actualPage = parseInt(this.props.page);
-    if(actualPage === undefined) actualPage = 1;
-    if(actualPage > 1) actualPage -= 1;
+    let actualPage = this.getActualPage(1);
+    if (actualPage > 1) actualPage -= 1;
     return "/products/" + actualPage;
   }
 
   goForward = () => {
-    let actualPage = parseInt(this.props.page);
-    if(actualPage == undefined) actualPage = 1;
-    actualPage += 1;
+    let actualPage = this.getActualPage(2);
+    let pageLimit = Math.ceil(this.props.count / 5);
+    if (actualPage < pageLimit) actualPage += 1;
     return "/products/" + actualPage;
   }
 
   render() {
-    const pages = this.getPages();
+    const pages = this.getNumberOfPages();
     return (
       <Pagination size="lg">
         <PaginationItem>
