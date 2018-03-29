@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.cartQuantity {
+  padding: 10px;
+}
+
 .padd-top {
   padding-top: 20px;
 }
