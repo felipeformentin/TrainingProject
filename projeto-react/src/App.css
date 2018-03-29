@@ -11,6 +11,15 @@
   margin: auto;
 }
 
+.notAnchor {
+  text-decoration: none;
+  color: black;
+}
+
+.notAnchor:hover {
+  background-color: #bbdefb;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

@@ -66,7 +66,7 @@ export default class ProductListBox extends Component {
         let products = [];
         for (let i = start; i <= limit; i++) {
             products.push(
-                <ProductList key={i}
+                <ProductList key={i} id={this.state.products[i]._id}
                     name={this.state.products[i].name}
                     description={this.state.products[i].description} />
             );

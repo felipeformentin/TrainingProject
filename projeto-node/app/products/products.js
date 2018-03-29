@@ -17,7 +17,18 @@ module.exports.productList = (req, res) => {
     }
 
     countProducts();
-}
+};
 
+module.exports.productDetail = (req, res) => {
 
+    getProduct = () => {
+        productsModel.findOne({ _id: req.params.id }, function (err, doc) {
+            if (!err) {
+                return res.send({ product: doc });
+            } else { throw err; }
+        });
+    }
+
+    getProduct();
+};
 

@@ -1,13 +1,14 @@
 import React from 'react';
 import { ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText } from 'reactstrap';
+import { Link } from "react-router-dom";
 import '../App.css';
 
 const ProductList = (props) => {
     return (
         <div className="padd-top">
             <div className="container">
-                <ListGroup>
-                    <ListGroupItem>
+                <ListGroup tag={Link} to={"/product-details/" + props.id} >
+                    <ListGroupItem className="notAnchor">
                         <ListGroupItemHeading>
                             {props.name}
                         </ListGroupItemHeading>
