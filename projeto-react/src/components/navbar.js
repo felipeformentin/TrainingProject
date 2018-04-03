@@ -13,6 +13,7 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
+import CartPopover from './cartPopover';
 
 export default class NavbarX extends React.Component {
   constructor(props) {
@@ -40,7 +41,7 @@ export default class NavbarX extends React.Component {
                 <NavLink tag={Link} to="/products/">Products</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to="/cart/">Cart</NavLink>
+              <CartPopover/>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
