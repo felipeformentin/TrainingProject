@@ -8,9 +8,25 @@ export default class CartPopover extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      popoverOpen: false
+      popoverOpen: false,
+      product: []
     };
   }
+
+    componentDidMount() {
+        this.callApi()
+            .then(res => this.setState({ product: res.product }))
+            .catch(err => console.log(err));
+    }
+
+    callApi = async () => {
+        try {
+            const response = await fetch('/api/mensagem');
+            return await response.json();
+        } catch (error) {
+            console.log('Error: ', error);
+        }
+    };
 
   toggle() {
     this.setState({
@@ -19,6 +35,7 @@ export default class CartPopover extends React.Component {
   }
 
   render() {
+      console.log(this.state);
     return (
       <div>
         <Button color="dark" id="Popover1" onClick={this.toggle}>

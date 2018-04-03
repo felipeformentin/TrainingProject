@@ -1,4 +1,4 @@
-var productsModel = require('./productsModel');
+let productsModel = require('./productsModel');
 
 module.exports.productList = (req, res) => {
 

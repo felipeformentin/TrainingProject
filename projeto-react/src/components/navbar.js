@@ -41,7 +41,7 @@ export default class NavbarX extends React.Component {
                 <NavLink tag={Link} to="/products/">Products</NavLink>
               </NavItem>
               <NavItem>
-              <CartPopover/>
+                <CartPopover />
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
