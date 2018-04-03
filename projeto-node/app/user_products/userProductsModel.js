@@ -5,7 +5,8 @@ var db = mongoose.connection;
 var userProductsSchema = new Schema({
     created: { type: Date, default: Date.now },
     user_id: String,
-    product_id: String
+    product_id: String,
+    product_quantity: Number
 });
 
 var userProductsModel = mongoose.model('UserProducts', userProductsSchema);
