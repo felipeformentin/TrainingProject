@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { InputGroup, Button, Jumbotron, Row, Col, Alert } from 'reactstrap';
+import axios from 'axios';
 
 export default class ProductListBox extends Component {
 
@@ -37,6 +38,20 @@ export default class ProductListBox extends Component {
         }
     };
 
+    callCartApi = async () => {
+        axios.post('/api/salva',{
+            user_id: '1',
+            product_id: this.state.product._id,
+            product_quantity: this.state.quantity
+        })
+        .then(function(response){
+            console.log(response);
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+    };
+
     toogleCartAlert = () => {
         this.setState({
             cartAlert:
@@ -49,6 +64,7 @@ export default class ProductListBox extends Component {
                 cartAlert: ''
             })
         }.bind(this), 2000);
+        this.callCartApi();
     }
 
     render() {

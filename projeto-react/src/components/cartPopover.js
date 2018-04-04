@@ -13,20 +13,20 @@ export default class CartPopover extends React.Component {
     };
   }
 
-    componentDidMount() {
-        this.callApi()
-            .then(res => this.setState({ product: res.product }))
-            .catch(err => console.log(err));
-    }
+  componentDidMount() {
+    this.callApi()
+      .then(res => this.setState({ product: res.product }))
+      .catch(err => console.log(err));
+  }
 
-    callApi = async () => {
-        try {
-            const response = await fetch('/api/mensagem');
-            return await response.json();
-        } catch (error) {
-            console.log('Error: ', error);
-        }
-    };
+  callApi = async () => {
+    try {
+      const response = await fetch('/api/mensagem');
+      return await response.json();
+    } catch (error) {
+      console.log('Error: ', error);
+    }
+  };
 
   toggle() {
     this.setState({
@@ -35,7 +35,7 @@ export default class CartPopover extends React.Component {
   }
 
   render() {
-      console.log(this.state);
+    console.log(this.state);
     return (
       <div>
         <Button color="dark" id="Popover1" onClick={this.toggle}>
@@ -43,7 +43,7 @@ export default class CartPopover extends React.Component {
         </Button>
         <Popover placement="bottom" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>
           <PopoverHeader>Last Added Products</PopoverHeader>
-          <PopoverBody>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</PopoverBody>
+          <PopoverBody>{this.state.product.name} <br/> {this.state.product.quantity} </PopoverBody>
           <Button block color="success" tag={Link} to="/cart/"> Check cart </Button>
         </Popover>
       </div>
