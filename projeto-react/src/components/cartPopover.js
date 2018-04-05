@@ -5,17 +5,17 @@ import { Link } from "react-router-dom";
 export default class CartPopover extends React.Component {
   constructor(props) {
     super(props);
-
     this.toggle = this.toggle.bind(this);
     this.state = {
       popoverOpen: false,
-      product: []
+      products: []
     };
+    this.mountCart = this.mountCart.bind(this);
   }
 
   componentDidMount() {
     this.callApi()
-      .then(res => this.setState({ product: res.product }))
+      .then(res => this.setState({ products: res.product }))
       .catch(err => console.log(err));
   }
 
@@ -34,8 +34,24 @@ export default class CartPopover extends React.Component {
     });
   }
 
+  mountCart = () => {
+    let products = [];
+    console.log(this.state.products.length);
+    if (this.state.products.length > 2) {
+      for (let i = 0; i <= 2; i++) {
+        products.push(
+          <PopoverBody key={i}>
+            {this.state.products[i].name}
+            {this.state.products[i].quantity}
+          </PopoverBody>
+        );
+      }
+    }
+    return products;
+  }
+
   render() {
-    console.log(this.state);
+    const products = this.mountCart();
     return (
       <div>
         <Button color="dark" id="Popover1" onClick={this.toggle}>
@@ -43,7 +59,7 @@ export default class CartPopover extends React.Component {
         </Button>
         <Popover placement="bottom" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>
           <PopoverHeader>Last Added Products</PopoverHeader>
-          <PopoverBody>{this.state.product.name} <br/> {this.state.product.quantity} </PopoverBody>
+          {products}
           <Button block color="success" tag={Link} to="/cart/"> Check cart </Button>
         </Popover>
       </div>

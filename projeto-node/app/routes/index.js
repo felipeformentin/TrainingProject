@@ -8,15 +8,14 @@ let productsModel = require('../products/productsModel');
 /* GET home page. */
 router.get('/api/mensagem', function (req, res, next) {
 
-  //THIS IS A TEST : GETTING THE PRODUCT FROM USER_PRODUCTS
-  userProductsModel.findOne({}).exec(function (err, docs) {
-    if (!err) {
-      productsModel.findOne({ _id: docs.product_id }, function (err, doc) {
-        if (!err) {
-          return res.send({ product: doc });
-        } else { throw err; }
-      });
-    } else { throw err; }
+  userProductsModel.find({}).limit(3).exec(function (err, docs){
+    if(!err){
+        productsModel.find({
+          _id: { $in: [docs[0].product_id, docs[1].product_id, docs[2].product_id] }
+        }, function (err, docs){
+          return res.send({ product: docs });
+        })
+    } else {throw err;}
   });
 
 });
