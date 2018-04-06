@@ -37,6 +37,7 @@ export default class CartPopover extends React.Component {
   mountCart = () => {
     let products = [];
     console.log(this.state.products.length);
+    // IS THIS IF RIGHT??
     if (this.state.products.length > 2) {
       for (let i = 0; i <= 2; i++) {
         products.push(
