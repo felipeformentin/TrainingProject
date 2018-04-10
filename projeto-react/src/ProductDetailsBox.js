@@ -39,7 +39,7 @@ export default class ProductListBox extends Component {
     };
 
     callCartApi = async () => {
-        axios.post('/api/salva',{
+        axios.post('/cart/store',{
             user_id: '1',
             product_id: this.state.product._id,
             product_quantity: this.state.quantity

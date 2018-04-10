@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
+var cartRouter = require('./routes/cart');
 var productsRouter = require('./routes/products');
 
 let bodyParser = require('body-parser');
@@ -25,6 +26,7 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.use('/', indexRouter);
+app.use('/cart', cartRouter);
 app.use('/products', productsRouter);
 
 // catch 404 and forward to error handler

@@ -21,7 +21,7 @@ export default class CartPopover extends React.Component {
 
   callApi = async () => {
     try {
-      const response = await fetch('/api/mensagem');
+      const response = await fetch('/cart/listPopover');
       return await response.json();
     } catch (error) {
       console.log('Error: ', error);

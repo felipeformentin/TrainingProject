@@ -5,6 +5,7 @@ import NavbarX from './components/navbar';
 import HomeBox from './HomeBox';
 import ProductListBox from './ProductListBox';
 import ProductDetailsBox from './ProductDetailsBox';
+import CartBox from './CartBox';
 
 class App extends Component {
 
@@ -17,6 +18,7 @@ class App extends Component {
             <Route exact path="/" component={HomeBox} />
             <Route path="/products/:page?" component={ProductListBox} />
             <Route path="/product-details/:id" component={ProductDetailsBox} />
+            <Route path="/cart/" component={CartBox} />
           </div>
         </Router>
       </div>
