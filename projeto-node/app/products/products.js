@@ -45,6 +45,19 @@ module.exports.productCartPopover = (req, res) => {
     });
 }
 
+//Deal later with duplication of above method
+module.exports.productCartList = (req, res) => {
+    userProductsModel.find({}).sort([['created', 'desc']]).exec(function (err, docs) {
+        if (!err) {
+            productsModel.find({
+                _id: { $in: [docs[0].product_id, docs[1].product_id, docs[2].product_id] }
+            }, function (err, docs) {
+                return res.send({ product: docs });
+            })
+        } else { throw err; }
+    });
+}
+
 module.exports.productCartStore = (req, res) => {
     let product = new userProductsModel({
         created: Date.now(),

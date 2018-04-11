@@ -4,6 +4,7 @@ const productList = require('../products/products');
 
 /* GET home page. */
 router.get('/listPopover', productList.productCartPopover);
+router.get('/list', productList.productCartList);
 
 router.post('/store', productList.productCartStore);
 
